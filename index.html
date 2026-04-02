@@ -10,585 +10,219 @@
 <style>
 :root {
   --gold: #C9A84C;
-  --gold-dark: #9A7B2E;
   --dark: #111111;
   --dark2: #1C1C1C;
   --dark3: #242424;
-  --mid: #333333;
-  --light: #F5F0E8;
-  --lighter: #FAF7F2;
   --text: #E8E0D0;
   --text-muted: #8A8070;
   --border: rgba(201,168,76,0.2);
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--dark); color: var(--text); overflow-x: hidden; }
 
-body {
-  font-family: 'Barlow', sans-serif;
-  background: var(--dark);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-/* TOPBAR */
-.topbar {
-  background: #0A0A0A;
-  padding: 8px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(201,168,76,0.15);
-}
+.topbar { background: #0A0A0A; padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(201,168,76,0.15); }
 .topbar-left { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
 .topbar-right { display: flex; gap: 24px; }
-.topbar-right a { font-size: 12px; color: var(--gold); text-decoration: none; letter-spacing: 1px; }
+.topbar-right a { font-size: 12px; color: var(--gold); text-decoration: none; }
 .topbar-right a:hover { color: #fff; }
 
-/* NAV */
-nav {
-  background: var(--dark);
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 0;
-  text-decoration: none;
-}
-.nav-logo-mark {
-  width: 42px;
-  height: 42px;
-  background: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  color: var(--dark);
-  letter-spacing: 1px;
-  clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%);
-}
-.nav-logo-text { display: flex; flex-direction: column; }
-.nav-logo-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  color: #fff;
-  letter-spacing: 3px;
-  line-height: 1;
-}
+nav { background: var(--dark); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.nav-logo { display: flex; align-items: center; gap: 14px; padding: 16px 0; text-decoration: none; }
+.nav-logo-mark { width: 42px; height: 42px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--dark); clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0% 90%, 0% 10%); }
+.nav-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 3px; line-height: 1; }
 .nav-logo-name span { color: var(--gold); }
 .nav-logo-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; }
-.nav-links { display: flex; gap: 0; }
-.nav-link {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  text-decoration: none;
-  padding: 20px 18px;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-}
+.nav-links { display: flex; }
+.nav-link { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 20px 18px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
 .nav-link:hover { color: #fff; border-bottom-color: var(--gold); }
-.nav-cta {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 10px 20px;
-  text-decoration: none;
-  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  transition: background 0.2s;
-}
+.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 10px 20px; text-decoration: none; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
 .nav-cta:hover { background: #E0B95C; }
 
-/* HERO */
-.hero {
-  min-height: 85vh;
-  background: var(--dark);
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 80px 40px;
-}
-.hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-glow {
-  position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
+.hero { min-height: 85vh; background: var(--dark); display: flex; align-items: center; position: relative; overflow: hidden; padding: 80px 40px; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-glow { position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
 .hero-content { position: relative; z-index: 1; max-width: 700px; }
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 1px;
-  background: var(--gold);
-}
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(60px, 10vw, 110px);
-  line-height: 0.9;
-  letter-spacing: 3px;
-  color: #fff;
-  margin-bottom: 24px;
-}
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.hero-eyebrow::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+.hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 10vw, 110px); line-height: 0.9; letter-spacing: 3px; color: #fff; margin-bottom: 24px; }
 .hero-title span { color: var(--gold); display: block; }
-.hero-desc {
-  font-size: 17px;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-bottom: 36px;
-}
+.hero-desc { font-size: 17px; font-weight: 300; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin-bottom: 36px; }
 .hero-desc strong { color: var(--text); font-weight: 500; }
 .hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 48px; }
-.btn-primary {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 14px 32px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s, transform 0.1s;
-  display: inline-block;
-}
-.btn-primary:hover { background: #E0B95C; transform: translateY(-1px); }
-.btn-outline {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  background: transparent;
-  color: var(--text);
-  padding: 13px 32px;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-  display: inline-block;
-}
+.btn-primary { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 14px 32px; text-decoration: none; border: none; cursor: pointer; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); display: inline-block; }
+.btn-primary:hover { background: #E0B95C; }
+.btn-outline { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; background: transparent; color: var(--text); padding: 13px 32px; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; display: inline-block; }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
-}
-.hero-stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  color: var(--gold);
-  letter-spacing: 2px;
-  line-height: 1;
-}
+.hero-stats { display: flex; gap: 40px; padding-top: 40px; border-top: 1px solid var(--border); }
+.hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); letter-spacing: 2px; line-height: 1; }
 .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
-/* SECTION STYLES */
 .section { padding: 80px 40px; }
 .section-dark { background: var(--dark2); }
 .section-darker { background: #0D0D0D; }
-.section-header { margin-bottom: 48px; }
-.section-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+.section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 .section-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: 2px;
-  color: #fff;
-  line-height: 1;
-}
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 56px); letter-spacing: 2px; color: #fff; line-height: 1; }
 .section-sub { font-size: 15px; color: var(--text-muted); margin-top: 12px; max-width: 560px; line-height: 1.7; font-weight: 300; }
+.section-header { margin-bottom: 48px; }
 
 /* EQUIPMENT GRID */
-.equip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
-.equip-card {
-  background: var(--dark3);
-  border: 1px solid var(--border);
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s, background 0.3s;
-  cursor: pointer;
-}
-.equip-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.3s;
-  transform-origin: left;
-}
-.equip-card:hover { border-color: rgba(201,168,76,0.5); background: #2A2A2A; }
+.equip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2px; }
+.equip-card { background: var(--dark3); border: 1px solid var(--border); position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.3s; }
+.equip-card:hover { border-color: rgba(201,168,76,0.5); }
+.equip-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; z-index: 1; }
 .equip-card:hover::before { transform: scaleX(1); }
-.equip-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
-  color: rgba(201,168,76,0.08);
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  line-height: 1;
-  letter-spacing: 2px;
-}
-.equip-category {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.equip-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  letter-spacing: 1px;
-  color: #fff;
-  margin-bottom: 8px;
-  line-height: 1.1;
-}
-.equip-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; font-weight: 300; }
+
+/* PLACEHOLDER IMAGE */
+.equip-img { width: 100%; height: 200px; background: #1A1A1A; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; }
+.equip-img-icon { width: 56px; height: 56px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.equip-img-icon svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.equip-img-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+.equip-img-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; }
+.placeholder-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); gap: 2px; position: absolute; inset: 0; opacity: 0.04; }
+.placeholder-cell { background: var(--gold); }
+.equip-img-num { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(201,168,76,0.04); position: absolute; bottom: -10px; right: 10px; line-height: 1; letter-spacing: 3px; }
+.photo-coming { position: absolute; bottom: 10px; left: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); padding: 3px 8px; background: rgba(17,17,17,0.8); }
+
+.equip-avail { position: absolute; top: 10px; right: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border: 1px solid; }
+.avail-yes { color: #7EC8A0; border-color: rgba(126,200,160,0.4); background: rgba(126,200,160,0.08); }
+.avail-request { color: var(--gold); border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.08); }
+.avail-soon { color: #8A8070; border-color: rgba(138,128,112,0.3); background: rgba(138,128,112,0.05); }
+
+.equip-body { padding: 20px 22px 22px; }
+.equip-category { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.equip-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: #fff; margin-bottom: 8px; line-height: 1.1; }
+.equip-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; font-weight: 300; }
+.equip-specs-preview { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.equip-spec-pill { font-size: 11px; color: var(--text-muted); background: rgba(201,168,76,0.06); border: 1px solid var(--border); padding: 3px 10px; letter-spacing: 1px; }
 .equip-footer { display: flex; justify-content: space-between; align-items: flex-end; }
-.equip-price { }
-.equip-price-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  color: var(--gold);
-  letter-spacing: 1px;
-  line-height: 1;
-}
-.equip-price-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 2px; }
-.equip-avail {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border: 1px solid;
-}
-.avail-yes { color: #7EC8A0; border-color: rgba(126,200,160,0.3); background: rgba(126,200,160,0.05); }
-.avail-request { color: var(--gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.05); }
+.equip-price-num { font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--gold); letter-spacing: 1px; line-height: 1; }
+.equip-price-label { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.equip-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 16px; border: 1px solid var(--gold); color: var(--gold); background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.equip-btn:hover { background: var(--gold); color: var(--dark); }
+.equip-btn-request { border-color: var(--text-muted); color: var(--text-muted); }
+.equip-btn-request:hover { background: var(--text-muted); color: var(--dark); }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.open { display: flex; }
+.modal { background: var(--dark2); border: 1px solid var(--border); max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+.modal-img { width: 100%; height: 260px; background: #1A1A1A; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; position: relative; }
+.modal-img-icon { width: 72px; height: 72px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.modal-img-icon svg { width: 36px; height: 36px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.modal-img-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+.modal-close { position: absolute; top: 14px; right: 14px; background: var(--dark3); border: 1px solid var(--border); color: var(--text-muted); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 18px; z-index: 10; }
+.modal-close:hover { color: #fff; border-color: var(--gold); }
+.modal-body { padding: 24px 28px; }
+.modal-category { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.modal-name { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: #fff; margin-bottom: 6px; line-height: 1; }
+.modal-model { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 16px; }
+.modal-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 24px; }
+.modal-specs-title { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.modal-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 24px; }
+.modal-spec { background: var(--dark3); padding: 12px 14px; }
+.modal-spec-label { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.modal-spec-value { font-size: 15px; color: #fff; font-weight: 500; }
+.modal-compat { background: rgba(201,168,76,0.05); border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.modal-compat strong { color: var(--gold); }
+.modal-footer { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.modal-price { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--gold); letter-spacing: 2px; line-height: 1; }
+.modal-price-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.modal-book-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 13px 28px; border: none; cursor: pointer; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
+.modal-book-btn:hover { background: #E0B95C; }
 
 /* HOW IT WORKS */
-.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; }
-.how-step {
-  padding: 36px 32px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
+.how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.how-step { padding: 36px 32px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; }
 .how-step:last-child { border-right: none; }
-.how-step-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 72px;
-  color: rgba(201,168,76,0.06);
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  line-height: 1;
-  letter-spacing: 3px;
-}
-.how-icon {
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  background: var(--dark3);
-}
+.how-step-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; color: rgba(201,168,76,0.05); position: absolute; bottom: 10px; right: 20px; line-height: 1; }
+.how-icon { width: 44px; height: 44px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; background: var(--dark3); }
 .how-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-.how-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 8px;
-}
+.how-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
 .how-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
 
-/* PHOTO REQUIREMENT */
-.photo-section {
-  background: var(--dark3);
-  border: 1px solid var(--border);
-  padding: 32px;
-  margin-top: 40px;
-}
-.photo-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  letter-spacing: 2px;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
+.photo-section { background: var(--dark3); border: 1px solid var(--border); padding: 32px; margin-top: 40px; }
+.photo-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--gold); margin-bottom: 16px; }
 .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.photo-item {
-  background: var(--dark);
-  border: 1px solid var(--border);
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
+.photo-item { background: var(--dark); border: 1px solid var(--border); padding: 14px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
 .photo-dot { width: 6px; height: 6px; background: var(--gold); flex-shrink: 0; }
 
-/* CONTACT / BOOKING FORM */
+/* AREA BANNER */
+.area-banner { background: var(--gold); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.area-banner-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--dark); }
+.area-banner-sub { font-size: 13px; color: rgba(17,17,17,0.6); margin-top: 2px; }
+.area-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.area-tag { background: rgba(17,17,17,0.15); color: var(--dark); padding: 6px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+/* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.contact-info { }
-.contact-detail {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-}
+.contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
 .contact-detail:last-child { border-bottom: none; }
-.contact-icon {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: var(--dark3);
-}
+.contact-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--dark3); }
 .contact-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
 .contact-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-.contact-value { font-size: 15px; color: #fff; font-weight: 400; }
+.contact-value { font-size: 15px; color: #fff; }
 .contact-value a { color: var(--gold); text-decoration: none; }
 .contact-value a:hover { color: #fff; }
 
 /* FORM */
 .form { background: var(--dark3); border: 1px solid var(--border); padding: 32px; }
-.form-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 2px;
-  color: #fff;
-  margin-bottom: 4px;
-}
+.form-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: #fff; margin-bottom: 4px; }
 .form-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; font-weight: 300; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
 .form-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-.form-input {
-  background: var(--dark);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #fff;
-  padding: 11px 14px;
-  font-family: 'Barlow', sans-serif;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
-}
+.form-input { background: var(--dark); border: 1px solid rgba(255,255,255,0.08); color: #fff; padding: 11px 14px; font-family: 'Barlow', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; width: 100%; }
 .form-input:focus { border-color: var(--gold); }
 .form-input option { background: var(--dark2); }
-.form-terms {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+.form-terms { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px; }
 .form-terms input { margin-top: 2px; accent-color: var(--gold); flex-shrink: 0; }
-.form-submit {
-  width: 100%;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 15px;
-  border: none;
-  cursor: pointer;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s;
-}
+.form-submit { width: 100%; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: var(--gold); color: var(--dark); padding: 15px; border: none; cursor: pointer; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
 .form-submit:hover { background: #E0B95C; }
-
-/* SERVICE AREA BANNER */
-.area-banner {
-  background: var(--gold);
-  padding: 28px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.area-banner-left { }
-.area-banner-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 3px;
-  color: var(--dark);
-}
-.area-banner-sub { font-size: 13px; color: rgba(17,17,17,0.6); margin-top: 2px; }
-.area-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.area-tag {
-  background: rgba(17,17,17,0.15);
-  color: var(--dark);
-  padding: 6px 16px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+.success-msg { display: none; background: rgba(126,200,160,0.1); border: 1px solid rgba(126,200,160,0.3); padding: 16px 20px; margin-bottom: 20px; font-size: 14px; color: #7EC8A0; }
 
 /* FOOTER */
-footer {
-  background: #0A0A0A;
-  padding: 60px 40px 30px;
-  border-top: 1px solid var(--border);
-}
+footer { background: #0A0A0A; padding: 60px 40px 30px; border-top: 1px solid var(--border); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-brand { }
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 3px;
-  color: #fff;
-  margin-bottom: 4px;
-}
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: #fff; margin-bottom: 4px; }
 .footer-logo span { color: var(--gold); }
 .footer-tagline { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
 .footer-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; max-width: 280px; }
 .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
 .footer-item { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
-.footer-item a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-item a { color: var(--text-muted); text-decoration: none; }
 .footer-item a:hover { color: var(--gold); }
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-copy { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
-.footer-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--border);
-  padding: 4px 12px;
-}
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 12px; color: var(--text-muted); }
+.footer-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 4px 12px; }
 
-/* SUCCESS MESSAGE */
-.success-msg {
-  display: none;
-  background: rgba(126,200,160,0.1);
-  border: 1px solid rgba(126,200,160,0.3);
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #7EC8A0;
-}
+/* TIKTOK BANNER */
+.tiktok-banner { background: var(--dark3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.tiktok-text { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.tiktok-text span { color: var(--gold); }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .topbar { padding: 8px 20px; }
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .hero { padding: 60px 20px; min-height: auto; }
-  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
   .section { padding: 60px 20px; }
+  .how-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .area-banner { padding: 24px 20px; }
   .form-row { grid-template-columns: 1fr; }
   .photo-grid { grid-template-columns: 1fr 1fr; }
   footer { padding: 48px 20px 24px; }
-  .how-step { border-right: none; }
+  .modal-specs-grid { grid-template-columns: 1fr; }
+  .tiktok-banner { padding: 16px 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-left">Natrona County, Wyoming</div>
   <div class="topbar-right">
@@ -597,11 +231,10 @@ footer {
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">WPR</div>
-    <div class="nav-logo-text">
+    <div>
       <div class="nav-logo-name">Wyoming <span>Premier</span> Rental</div>
       <div class="nav-logo-sub">Natrona County · Est. 2026</div>
     </div>
@@ -614,215 +247,379 @@ footer {
   <a href="#contact" class="nav-cta">Book Now</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Natrona County Equipment Rental</div>
-    <h1 class="hero-title">
-      Built For
-      <span>Wyoming</span>
-      Work
-    </h1>
-    <p class="hero-desc">
-      Professional grade skid steer attachments and equipment rental serving <strong>Casper, Evansville, Mills, and Bar Nunn.</strong> Wyoming owned and operated. Honest prices. No hassle booking.
-    </p>
+    <h1 class="hero-title">Built For<span>Wyoming</span>Work</h1>
+    <p class="hero-desc">Professional grade skid steer attachments and equipment rental serving <strong>Casper, Evansville, Mills, and Bar Nunn.</strong> Wyoming owned and operated. Honest prices. No hassle booking.</p>
     <div class="hero-actions">
       <a href="#equipment" class="btn-primary">Browse Equipment</a>
       <a href="#contact" class="btn-outline">Book a Rental</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">10+</div>
-        <div class="hero-stat-label">Items Available</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">Wyoming Owned</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">24hr</div>
-        <div class="hero-stat-label">Response Time</div>
-      </div>
+      <div><div class="hero-stat-num">10+</div><div class="hero-stat-label">Items Available</div></div>
+      <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Wyoming Owned</div></div>
+      <div><div class="hero-stat-num">24hr</div><div class="hero-stat-label">Response Time</div></div>
     </div>
   </div>
 </section>
 
-<!-- EQUIPMENT -->
+<div class="tiktok-banner">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+  <div class="tiktok-text">Follow us <span>@WyomingPremierRental</span> — Watch our attachments in action before you rent</div>
+</div>
+
 <section class="section section-dark" id="equipment">
   <div class="section-header">
     <div class="section-eyebrow">Our Fleet</div>
     <h2 class="section-title">Equipment For Rent</h2>
-    <p class="section-sub">All attachments fit standard skid steer loaders with auxiliary hydraulics. Inspect and document condition at every pickup and return.</p>
+    <p class="section-sub">Click any item to see full specs and details. All attachments fit standard skid steer loaders with auxiliary hydraulics unless noted.</p>
   </div>
   <div class="equip-grid">
 
-    <div class="equip-card">
-      <div class="equip-number">01</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Hydraulic Rock Rake</div>
-      <p class="equip-desc">78" hydraulic rock rake. Ideal for clearing land, removing rocks and debris, grading and leveling soil.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$95</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- ROCK RAKE -->
+    <div class="equip-card" onclick="openModal('rake')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">01</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Model GY-RR78</div>
+        <div class="equip-name">Hydraulic Rock Rake</div>
+        <p class="equip-desc">78" hydraulic rock rake for land clearing, debris removal, and soil grading. 15 tooth rotor.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">78" Width</span>
+          <span class="equip-spec-pill">10.6–15.9 GPM</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$95</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">02</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">4-In-1 Hydraulic Bucket</div>
-      <p class="equip-desc">72" hydraulic 4-in-1 combination bucket. Scoop, clamp, grade, and spread. The most versatile attachment in the fleet.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$85</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- 4-IN-1 BUCKET -->
+    <div class="equip-card" onclick="openModal('bucket')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">02</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Model GY-KH72</div>
+        <div class="equip-name">4-In-1 Hydraulic Bucket</div>
+        <p class="equip-desc">72" hydraulic 4-in-1 combo bucket. Scoop, clamp, grade, and spread. The most versatile attachment in the fleet.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">72" Width</span>
+          <span class="equip-spec-pill">660 lb Capacity</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$85</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">03</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Hydraulic Backhoe</div>
-      <p class="equip-desc">Seated swivel backhoe with 12" bucket. Dig trenches, footings, utility lines, and more with precision control.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$175</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- BACKHOE -->
+    <div class="equip-card" onclick="openModal('backhoe')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M14 14s1.5-1 2-3"/><path d="M3 17l3-3 4 4 3-7 4 3"/><circle cx="7" cy="14" r="1"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">03</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Hydraulic Backhoe</div>
+        <div class="equip-name">Hydraulic Backhoe</div>
+        <p class="equip-desc">Seated swivel backhoe with 12" bucket. Dig trenches, footings, and utility lines with precision control.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">12" Bucket</span>
+          <span class="equip-spec-pill">Swivel Seat</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$175</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">04</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Hydraulic Stump Grinder</div>
-      <p class="equip-desc">Heavy duty stump grinder attachment. Removes stumps quickly and efficiently without digging. Requires high flow hydraulics.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$150</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- STUMP GRINDER -->
+    <div class="equip-card" onclick="openModal('stump')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l4 4 4-8"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">04</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Model GY-SG45</div>
+        <div class="equip-name">Hydraulic Stump Grinder</div>
+        <p class="equip-desc">Heavy duty stump grinder. Removes stumps quickly without digging. Standard flow compatible.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">160–500 RPM</span>
+          <span class="equip-spec-pill">315 Nm Torque</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$150</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">05</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Posthole Digger</div>
-      <p class="equip-desc">Hydraulic auger with 8", 12", and 16" bits included. Fence posts, sign posts, tree planting, and deck footings.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$125</div>
-          <div class="equip-price-label">Per day · 3 auger sizes included</div>
+    <!-- POSTHOLE DIGGER -->
+    <div class="equip-card" onclick="openModal('auger')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M8 6l4-4 4 4"/><path d="M8 18l4 4 4-4"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">05</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Hydraulic Auger</div>
+        <div class="equip-name">Posthole Digger</div>
+        <p class="equip-desc">Hydraulic auger with 8", 12", and 16" bits included. Fence posts, sign posts, tree planting, deck footings.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">3 Bit Sizes</span>
+          <span class="equip-spec-pill">8" / 12" / 16"</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$125</div><div class="equip-price-label">Per day · All 3 bits included</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">06</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Flat Ripper Scarifier</div>
-      <p class="equip-desc">70" hydraulic scarifier for breaking up hard packed soil, asphalt, and rocky ground before grading or landscaping.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$85</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- SCARIFIER -->
+    <div class="equip-card" onclick="openModal('scarifier')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">06</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Model GY-FR70</div>
+        <div class="equip-name">Flat Ripper Scarifier</div>
+        <p class="equip-desc">70" hydraulic scarifier for breaking up hard packed soil, rocky ground, and asphalt before grading.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">70" Width</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$85</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">07</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Telescopic Boom</div>
-      <p class="equip-desc">Extends reach for lifting and placing materials at height or over obstacles. Versatile tool for construction and landscaping.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$95</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- TELESCOPIC BOOM -->
+    <div class="equip-card" onclick="openModal('boom')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 9 8 12 2 12"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">07</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Model GY-STB47</div>
+        <div class="equip-name">Telescopic Boom</div>
+        <p class="equip-desc">Extends reach for lifting and placing materials at height or over obstacles. 3,300 lb max load capacity.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">131" Max Length</span>
+          <span class="equip-spec-pill">47" Max Reach</span>
+          <span class="equip-spec-pill">3,300 lb Load</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$95</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">08</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Hydraulic Rototiller</div>
-      <p class="equip-desc">72" hydraulic rototiller for soil preparation, garden beds, food plots, and seedbed preparation. Requires high flow.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$125</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- ROTOTILLER -->
+    <div class="equip-card" onclick="openModal('tiller')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">08</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Wolverine 72"</div>
+        <div class="equip-name">Hydraulic Rototiller</div>
+        <p class="equip-desc">72" hydraulic rototiller for soil prep, garden beds, food plots, and seedbed preparation. High flow recommended.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">72" Width</span>
+          <span class="equip-spec-pill">~23 GPM</span>
+          <span class="equip-spec-pill">High Flow Rec.</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$125</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">09</div>
-      <div class="equip-category">Skid Steer Attachment</div>
-      <div class="equip-name">Grapple Bucket</div>
-      <p class="equip-desc">Hydraulic grapple bucket for handling brush, logs, debris, and loose materials. Essential for land clearing and cleanup.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$110</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- GRAPPLE -->
+    <div class="equip-card" onclick="openModal('grapple')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">09</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Skid Steer Attachment · Hydraulic Grapple</div>
+        <div class="equip-name">Grapple Bucket</div>
+        <p class="equip-desc">Hydraulic grapple for brush, logs, debris, and loose materials. Essential for land clearing and cleanup jobs.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">15–25 GPM</span>
+          <span class="equip-spec-pill">3,000 PSI Max</span>
+          <span class="equip-spec-pill">Standard Flow</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$110</div><div class="equip-price-label">Per day · Weekly rates available</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card">
-      <div class="equip-number">10</div>
-      <div class="equip-category">Towable Equipment</div>
-      <div class="equip-name">Pressure Washer Trailer</div>
-      <p class="equip-desc">Commercial grade Hotsy pressure washer on tandem axle trailer with 500 gallon water tank and integrated hose reel.</p>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$225</div>
-          <div class="equip-price-label">Per day · $900 per week</div>
+    <!-- PRESSURE WASHER -->
+    <div class="equip-card" onclick="openModal('washer')">
+      <div class="equip-img">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 0c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">10</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-yes">Available</div>
+      </div>
+      <div class="equip-body">
+        <div class="equip-category">Towable Equipment · Hotsy 1265SSD</div>
+        <div class="equip-name">Pressure Washer Trailer</div>
+        <p class="equip-desc">Commercial Hotsy pressure washer on tandem axle trailer with 500 gallon tank and integrated Cox hose reel.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">500 Gal Tank</span>
+          <span class="equip-spec-pill">Hose Reel</span>
+          <span class="equip-spec-pill">Towable</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$225</div><div class="equip-price-label">Per day · $900 per week</div></div>
+          <button class="equip-btn">View Specs</button>
+        </div>
       </div>
     </div>
 
-    <div class="equip-card" style="border-color: rgba(201,168,76,0.4); grid-column: span 1;">
-      <div class="equip-number">11</div>
-      <div class="equip-category" style="color: #E0B95C;">Featured · Request To Book</div>
-      <div class="equip-name">2024 Bobcat T76</div>
-      <p class="equip-desc">2024 Bobcat T76 compact track loader. High flow hydraulics, Bluetooth, backup camera, 2-speed. One of the most capable machines in its class. Request to book — we confirm every T76 rental personally.</p>
-      <div style="margin: 12px 0; padding: 10px 12px; border: 1px solid var(--border); background: var(--dark); font-size: 12px; color: var(--text-muted); line-height: 1.6;">
-        Add any attachment at half price when bundled with T76 rental. Damage deposit required.
-      </div>
-      <div class="equip-footer">
-        <div class="equip-price">
-          <div class="equip-price-num">$375</div>
-          <div class="equip-price-label">Per day · Weekly rates available</div>
+    <!-- T76 -->
+    <div class="equip-card" onclick="openModal('t76')" style="border-color: rgba(201,168,76,0.4);">
+      <div class="equip-img" style="border-color: rgba(201,168,76,0.3);">
+        <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+        <div class="equip-img-placeholder">
+          <div class="equip-img-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div class="equip-img-label">Photo Coming Soon</div>
         </div>
+        <div class="equip-img-num">11</div>
+        <div class="photo-coming">Tap to see specs</div>
         <div class="equip-avail avail-request">Request</div>
       </div>
+      <div class="equip-body">
+        <div class="equip-category" style="color: #E0B95C;">Featured · Request To Book · 2024 Model</div>
+        <div class="equip-name">Bobcat T76 Skid Steer</div>
+        <p class="equip-desc">2024 Bobcat T76 compact track loader. High flow hydraulics, Bluetooth, backup camera, 2-speed. Add any attachment at half price.</p>
+        <div class="equip-specs-preview">
+          <span class="equip-spec-pill">High Flow</span>
+          <span class="equip-spec-pill">Bluetooth</span>
+          <span class="equip-spec-pill">Backup Camera</span>
+          <span class="equip-spec-pill">2-Speed</span>
+        </div>
+        <div class="equip-footer">
+          <div><div class="equip-price-num">$375</div><div class="equip-price-label">Per day · Attachments 50% off when bundled</div></div>
+          <button class="equip-btn equip-btn-request">Request</button>
+        </div>
+      </div>
     </div>
 
   </div>
-
   <div style="margin-top: 24px; padding: 20px; border: 1px solid var(--border); background: var(--dark);">
-    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
-      <strong style="color: var(--gold);">Compatibility note:</strong> Skid steer attachments require a loader with auxiliary hydraulics. Stump grinder and rototiller require high flow hydraulics. Not sure if your machine is compatible? Call us at (307) 900-5333 before booking.
-    </p>
+    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;"><strong style="color: var(--gold);">Compatibility note:</strong> All attachments require a skid steer with auxiliary hydraulics. Rototiller performs best with high flow (28+ GPM). Not sure if your machine is compatible? Call us at (307) 900-5333 before booking.</p>
   </div>
 </section>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal-content">
+    <div class="modal-img" id="modal-img">
+      <div class="placeholder-grid"><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div><div class="placeholder-cell"></div></div>
+      <div class="modal-img-icon" id="modal-icon"><svg viewBox="0 0 24 24" width="36" height="36" stroke="#C9A84C" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div>
+      <div class="modal-img-label">Photo Coming Soon</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-category" id="modal-category"></div>
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-model" id="modal-model"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-specs-title">Technical Specifications</div>
+      <div class="modal-specs-grid" id="modal-specs"></div>
+      <div class="modal-compat" id="modal-compat"></div>
+      <div class="modal-footer">
+        <div>
+          <div class="modal-price" id="modal-price"></div>
+          <div class="modal-price-sub" id="modal-price-sub"></div>
+        </div>
+        <button class="modal-book-btn" onclick="closeModal(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book This Equipment</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- HOW IT WORKS -->
 <section class="section section-darker" id="how-it-works">
@@ -834,57 +631,47 @@ footer {
   <div class="how-grid">
     <div class="how-step">
       <div class="how-step-num">01</div>
-      <div class="how-icon">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </div>
+      <div class="how-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
       <div class="how-title">Submit your request</div>
-      <p class="how-desc">Fill out the booking form below with your equipment choice, dates, and contact info. We respond within 24 hours to confirm availability.</p>
+      <p class="how-desc">Fill out the booking form with your equipment choice, dates, and contact info. We respond within 24 hours to confirm availability.</p>
     </div>
     <div class="how-step">
       <div class="how-step-num">02</div>
-      <div class="how-icon">
-        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      </div>
+      <div class="how-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="how-title">Confirm and pay</div>
-      <p class="how-desc">Once confirmed, payment is collected via Stripe, Venmo, or cash on pickup. Your rental slot is held once payment is received.</p>
+      <p class="how-desc">Once confirmed, payment is collected via Stripe, Venmo, or cash on pickup. Your slot is held once payment is received.</p>
     </div>
     <div class="how-step">
       <div class="how-step-num">03</div>
-      <div class="how-icon">
-        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      </div>
+      <div class="how-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
       <div class="how-title">Document at pickup</div>
-      <p class="how-desc">Before leaving with the equipment, complete the required photo checklist documenting condition from all required angles.</p>
+      <p class="how-desc">Before leaving, complete the required photo checklist documenting condition from all required angles. 6 photos required.</p>
     </div>
     <div class="how-step">
       <div class="how-step-num">04</div>
-      <div class="how-icon">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
+      <div class="how-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <div class="how-title">Return and close out</div>
-      <p class="how-desc">Return equipment by your scheduled time and complete the return photo checklist. Rental closes automatically when all photos are submitted.</p>
+      <p class="how-desc">Return by your scheduled time and complete the return photo checklist. Rental closes when all photos are submitted.</p>
     </div>
   </div>
-
   <div class="photo-section">
     <div class="photo-title">Required Photo Documentation</div>
-    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; font-weight: 300;">All 6 photos required at pickup AND return. This protects both parties and ensures fair condition assessment.</p>
+    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; font-weight: 300;">All 6 photos required at pickup AND return. Protects both parties and ensures fair condition assessment.</p>
     <div class="photo-grid">
       <div class="photo-item"><div class="photo-dot"></div>Front of equipment</div>
       <div class="photo-item"><div class="photo-dot"></div>Rear of equipment</div>
       <div class="photo-item"><div class="photo-dot"></div>Left side</div>
       <div class="photo-item"><div class="photo-dot"></div>Right side</div>
       <div class="photo-item"><div class="photo-dot"></div>Hitch / connection point</div>
-      <div class="photo-item"><div class="photo-dot"></div>Hour meter reading</div>
+      <div class="photo-item"><div class="photo-dot"></div>Serial number / ID plate</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICE AREA -->
 <div class="area-banner">
-  <div class="area-banner-left">
+  <div>
     <div class="area-banner-title">Serving All Of Natrona County</div>
-    <div class="area-banner-sub">Pickup available at our Evansville location · Delivery available for select equipment</div>
+    <div class="area-banner-sub">Pickup at our Evansville location · Delivery available for select equipment</div>
   </div>
   <div class="area-tags">
     <div class="area-tag">Casper</div>
@@ -894,131 +681,82 @@ footer {
   </div>
 </div>
 
-<!-- CONTACT -->
 <section class="section section-dark" id="contact">
   <div class="section-header">
     <div class="section-eyebrow">Get In Touch</div>
     <h2 class="section-title">Book Your Equipment</h2>
-    <p class="section-sub">Submit a rental request and we'll confirm availability within 24 hours. Have questions? Call or text anytime.</p>
+    <p class="section-sub">Submit a rental request and we'll confirm availability within 24 hours.</p>
   </div>
   <div class="contact-grid">
-    <div class="contact-info">
+    <div>
       <div class="contact-detail">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
-        </div>
-        <div>
-          <div class="contact-label">Phone / Text</div>
-          <div class="contact-value"><a href="tel:3079005333">(307) 900-5333</a></div>
-        </div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg></div>
+        <div><div class="contact-label">Phone / Text</div><div class="contact-value"><a href="tel:3079005333">(307) 900-5333</a></div></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:wyomingpremierrental@gmail.com">wyomingpremierrental@gmail.com</a></div>
-        </div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:wyomingpremierrental@gmail.com">wyomingpremierrental@gmail.com</a></div></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="contact-label">Pickup Location</div>
-          <div class="contact-value">Evansville, Wyoming 82636<br><span style="font-size: 13px; color: var(--text-muted);">Natrona County</span></div>
-        </div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="contact-label">Pickup Location</div><div class="contact-value">Evansville, Wyoming 82636<br><span style="font-size:13px;color:var(--text-muted)">Natrona County</span></div></div>
       </div>
       <div class="contact-detail">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <div class="contact-label">Response Time</div>
-          <div class="contact-value">Within 24 hours</div>
-        </div>
-      </div>
-      <div style="padding: 20px; border: 1px solid var(--border); background: var(--dark3);">
-        <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;">Payment Methods</div>
-        <div style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">Stripe (credit/debit card) · Venmo · Cash on pickup</div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <div><div class="contact-label">Payment Methods</div><div class="contact-value" style="font-size:14px">Stripe · Venmo · Cash</div></div>
       </div>
     </div>
-
     <div class="form">
       <div class="form-title">Rental Request</div>
-      <div class="form-sub">All fields required. We'll confirm availability and send payment instructions within 24 hours.</div>
+      <div class="form-sub">We'll confirm availability and send payment instructions within 24 hours.</div>
       <div id="success-msg" class="success-msg">Your request has been submitted. We'll be in touch within 24 hours to confirm your rental.</div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">First Name</label>
-          <input class="form-input" type="text" placeholder="John" id="fname">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Last Name</label>
-          <input class="form-input" type="text" placeholder="Smith" id="lname">
-        </div>
+        <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John" id="fname"></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith" id="lname"></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input class="form-input" type="tel" placeholder="(307) 555-0100" id="phone">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" placeholder="you@email.com" id="email">
-        </div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(307) 555-0100" id="phone"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com" id="email"></div>
       </div>
       <div class="form-group">
         <label class="form-label">Equipment Requested</label>
         <select class="form-input" id="equipment">
           <option value="">Select equipment...</option>
-          <option>Hydraulic Rock Rake 78" — $95/day</option>
-          <option>4-In-1 Hydraulic Bucket 72" — $85/day</option>
+          <option>Hydraulic Rock Rake 78" (GY-RR78) — $95/day</option>
+          <option>4-In-1 Hydraulic Bucket 72" (GY-KH72) — $85/day</option>
           <option>Hydraulic Backhoe w/ 12" Bucket — $175/day</option>
-          <option>Hydraulic Stump Grinder — $150/day</option>
-          <option>Posthole Digger w/ 3 Auger Sizes — $125/day</option>
-          <option>Flat Ripper Scarifier 70" — $85/day</option>
-          <option>Telescopic Boom — $95/day</option>
-          <option>Hydraulic Rototiller 72" — $125/day</option>
+          <option>Hydraulic Stump Grinder (GY-SG45) — $150/day</option>
+          <option>Posthole Digger w/ 8"/12"/16" Augers — $125/day</option>
+          <option>Flat Ripper Scarifier 70" (GY-FR70) — $85/day</option>
+          <option>Telescopic Boom (GY-STB47) — $95/day</option>
+          <option>Hydraulic Rototiller 72" (Wolverine) — $125/day</option>
           <option>Grapple Bucket — $110/day</option>
+          <option>Pressure Washer Trailer (Hotsy) — $225/day</option>
           <option>2024 Bobcat T76 Skid Steer — $375/day (Request to book)</option>
-          <option>2024 Bobcat T76 + Attachment Bundle — $375/day + half price attachment</option>
+          <option>Bobcat T76 + Attachment Bundle — $375/day + 50% off attachment</option>
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Pickup Date</label>
-          <input class="form-input" type="date" id="pickup">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Return Date</label>
-          <input class="form-input" type="date" id="return">
-        </div>
+        <div class="form-group"><label class="form-label">Pickup Date</label><input class="form-input" type="date" id="pickup"></div>
+        <div class="form-group"><label class="form-label">Return Date</label><input class="form-input" type="date" id="return"></div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">City</label>
           <select class="form-input" id="city">
-            <option>Casper</option>
-            <option>Evansville</option>
-            <option>Mills</option>
-            <option>Bar Nunn</option>
-            <option>Other Natrona County</option>
+            <option>Casper</option><option>Evansville</option><option>Mills</option><option>Bar Nunn</option><option>Other Natrona County</option>
           </select>
         </div>
         <div class="form-group">
           <label class="form-label">Preferred Payment</label>
           <select class="form-input" id="payment">
-            <option>Stripe (credit/debit card)</option>
-            <option>Venmo</option>
-            <option>Cash on pickup</option>
+            <option>Stripe (credit/debit card)</option><option>Venmo</option><option>Cash on pickup</option>
           </select>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">Additional Notes (optional)</label>
-        <textarea class="form-input" rows="3" placeholder="Project details, questions about compatibility, delivery needs..." id="notes" style="resize: vertical;"></textarea>
+        <textarea class="form-input" rows="3" placeholder="Your skid steer make/model, project details, questions about compatibility..." id="notes" style="resize:vertical"></textarea>
       </div>
       <div class="form-terms">
         <input type="checkbox" id="terms">
@@ -1029,32 +767,28 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
+    <div>
       <div class="footer-logo">Wyoming <span>Premier</span> Rental</div>
       <div class="footer-tagline">Natrona County · Est. 2026</div>
       <p class="footer-desc">Wyoming owned and operated equipment rental serving Casper, Evansville, Mills, and Bar Nunn. Professional grade machines at honest prices.</p>
     </div>
     <div>
       <div class="footer-col-title">Equipment</div>
-      <div class="footer-item">2024 Bobcat T76 Skid Steer</div>
-      <div class="footer-item">Hydraulic Rock Rake</div>
-      <div class="footer-item">4-In-1 Bucket</div>
-      <div class="footer-item">Hydraulic Backhoe</div>
-      <div class="footer-item">Stump Grinder</div>
-      <div class="footer-item">Posthole Digger</div>
-      <div class="footer-item">Pressure Washer Trailer</div>
+      <div class="footer-item">2024 Bobcat T76</div>
+      <div class="footer-item">Rock Rake · 4-in-1 Bucket</div>
+      <div class="footer-item">Backhoe · Stump Grinder</div>
+      <div class="footer-item">Posthole Digger · Scarifier</div>
+      <div class="footer-item">Telescopic Boom · Rototiller</div>
+      <div class="footer-item">Grapple · Pressure Washer</div>
     </div>
     <div>
       <div class="footer-col-title">Contact</div>
       <div class="footer-item"><a href="tel:3079005333">(307) 900-5333</a></div>
       <div class="footer-item"><a href="mailto:wyomingpremierrental@gmail.com">wyomingpremierrental@gmail.com</a></div>
       <div class="footer-item">Evansville, Wyoming 82636</div>
-      <div class="footer-item" style="margin-top: 16px;">
-        <a href="#equipment">Browse Equipment</a>
-      </div>
+      <div class="footer-item" style="margin-top:16px"><a href="#equipment">Browse Equipment</a></div>
       <div class="footer-item"><a href="#contact">Book a Rental</a></div>
     </div>
   </div>
@@ -1065,32 +799,61 @@ footer {
 </footer>
 
 <script>
+const modals = {
+  rake: { category: 'Skid Steer Attachment', name: 'Hydraulic Rock Rake', model: 'Model GY-RR78 · Giyi', desc: '78" hydraulic rock rake ideal for land clearing, removing rocks and debris, grading and leveling soil, and preparing ground for seeding or landscaping. Features 15 hardened steel teeth on a hydraulic rotor for aggressive material handling.', specs: [['Working Width', '78" (1,980mm)'],['Rotor Teeth', '15 Tooth'],['Hydraulic Flow', '10.6–15.9 GPM'],['Working Pressure', '10–22 MPa'],['Flow Type', 'Standard Flow'],['Mount', 'Universal Quick Attach']], compat: '<strong>Compatible with:</strong> Any skid steer with standard flow auxiliary hydraulics (16–25 GPM). Fully compatible with Bobcat, Cat, Kubota, Case, John Deere, and most major brands.', price: '$95', priceSub: 'Per day · Weekly rates available · Model: GY-RR78' },
+  bucket: { category: 'Skid Steer Attachment', name: '4-In-1 Hydraulic Bucket', model: 'Model GY-KH72 · Giyi', desc: '72" hydraulic 4-in-1 combination bucket. Scoop, clamp, grade, and spread with a single attachment. The most versatile attachment in the fleet — replaces multiple tools on any job site.', specs: [['Working Width', '72" (1,830mm)'],['Bucket Capacity', '660 lbs'],['Working Pressure', '16–21 MPa'],['Flow Type', 'Standard Flow'],['Mount', 'Universal Quick Attach'],['Function', '4-In-1 Clam']], compat: '<strong>Compatible with:</strong> Any skid steer with standard flow auxiliary hydraulics. Fully compatible with Bobcat, Cat, Kubota, Case, John Deere, and most major brands.', price: '$85', priceSub: 'Per day · Weekly rates available · Model: GY-KH72' },
+  backhoe: { category: 'Skid Steer Attachment', name: 'Hydraulic Backhoe', model: 'Hydraulic Seated Swivel Backhoe', desc: 'Hydraulic seated swivel backhoe with 12" bucket. Dig trenches, footings, utility lines, and more with the precision of a full size backhoe at a fraction of the cost. Swivel seat allows operator to face the dig direction.', specs: [['Bucket Width', '12"'],['Operator', 'Seated Swivel'],['Mount', 'Universal Quick Attach'],['Flow Type', 'Standard Flow'],['Function', 'Dig / Trench'],['Drive', 'Hydraulic']], compat: '<strong>Compatible with:</strong> Any skid steer with standard flow auxiliary hydraulics. Note: Operator must have experience running backhoe equipment.', price: '$175', priceSub: 'Per day · Weekly rates available' },
+  stump: { category: 'Skid Steer Attachment', name: 'Hydraulic Stump Grinder', model: 'Model GY-SG45 · Giyi', desc: 'Heavy duty hydraulic stump grinder attachment. Removes stumps quickly and efficiently without digging. Standard flow compatible — runs on most skid steers. Flat-faced couplers for clean hydraulic connection.', specs: [['Cutter Speed', '160–500 RPM'],['Max Torque', '315 Nm'],['Working Pressure', '10–22 MPa'],['Weight', '392 lbs (178 kg)'],['Couplers', 'Flat-Face'],['Flow Type', 'Standard Flow']], compat: '<strong>Compatible with:</strong> Standard flow skid steers (16–25 GPM). Flat-faced hydraulic couplers required. Compatible with most major skid steer brands.', price: '$150', priceSub: 'Per day · Weekly rates available · Model: GY-SG45' },
+  auger: { category: 'Skid Steer Attachment', name: 'Posthole Digger', model: 'Hydraulic Auger · 3 Bit Sizes Included', desc: 'Hydraulic posthole digging attachment with three auger bit sizes included in every rental. Perfect for fence posts, sign posts, tree planting, deck footings, and any application requiring precise holes at multiple diameters.', specs: [['Auger Bits', '8", 12", and 16"'],['Drive', 'Hydraulic Motor'],['Mount', 'Universal Quick Attach'],['Flow Type', 'Standard Flow'],['Bits Included', 'All 3 sizes'],['Application', 'Posts / Footings']], compat: '<strong>Compatible with:</strong> Any skid steer with standard flow auxiliary hydraulics. All three bit sizes included at no extra charge.', price: '$125', priceSub: 'Per day · All 3 auger bits included' },
+  scarifier: { category: 'Skid Steer Attachment', name: 'Flat Ripper Scarifier', model: 'Model GY-FR70 · Giyi · 70"', desc: '70" hydraulic flat ripper scarifier for breaking up hard packed soil, compacted ground, rocky terrain, and even asphalt before grading, seeding, or landscaping. Aggressive ripper teeth cut through tough material efficiently.', specs: [['Working Width', '70" (1,780mm)'],['Drive', 'Hydraulic'],['Mount', 'Universal Quick Attach'],['Flow Type', 'Standard Flow'],['Application', 'Ripping / Scarifying'],['Material', 'Hardened Steel Teeth']], compat: '<strong>Compatible with:</strong> Any skid steer with standard flow auxiliary hydraulics. Works on Bobcat, Cat, Kubota, Case, John Deere, and most major brands.', price: '$85', priceSub: 'Per day · Weekly rates available · Model: GY-FR70' },
+  boom: { category: 'Skid Steer Attachment', name: 'Telescopic Boom', model: 'Model GY-STB47 · Giyi', desc: 'Telescopic jib boom attachment extends your skid steer\'s reach for lifting and placing materials at height or over obstacles. Ideal for construction, placing large stones, setting posts in difficult locations, and any application requiring extended reach.', specs: [['Max Extension', '131" (10.9 ft)'],['Max Reach', '47"'],['Max Load', '3,300 lbs'],['Dimensions', '45"L × 83"W × 19"H'],['Mount', 'Universal Quick Attach'],['Drive', 'Manual / Hydraulic Lock']], compat: '<strong>Compatible with:</strong> Standard skid steers. No auxiliary hydraulics required for basic boom function. Check machine lift capacity against your load requirements.', price: '$95', priceSub: 'Per day · Weekly rates available · Model: GY-STB47' },
+  tiller: { category: 'Skid Steer Attachment', name: 'Hydraulic Rototiller', model: 'Wolverine 72" Hydraulic Rototiller', desc: '72" hydraulic rototiller for soil preparation, garden beds, food plots, and seedbed preparation. Tills and breaks up compacted soil for planting or landscaping. High flow hydraulics recommended for best performance.', specs: [['Working Width', '72" (1,830mm)'],['Hydraulic Flow', '~23 GPM'],['Flow Type', 'High Flow Recommended'],['Drive', 'Hydraulic Motor'],['Mount', 'Universal Quick Attach'],['Application', 'Tilling / Soil Prep']], compat: '<strong>Flow requirement:</strong> ~23 GPM. High flow skid steer (28+ GPM) recommended for best performance. May run on standard flow machines but performance will be reduced. Ask us if unsure.', price: '$125', priceSub: 'Per day · High flow skid steer recommended · Wolverine brand' },
+  grapple: { category: 'Skid Steer Attachment', name: 'Grapple Bucket', model: 'Hydraulic Grapple · Dual Arm', desc: 'Hydraulic grapple bucket for handling brush, logs, debris, and loose materials. Dual independent hydraulic grapple arms secure uneven loads. Essential for land clearing, storm cleanup, and debris management.', specs: [['Hydraulic Flow', '15–25 GPM'],['Max Pressure', '3,000 PSI'],['Flow Type', 'Standard Flow'],['Arms', 'Dual Independent'],['Mount', 'Universal Quick Attach'],['Application', 'Land Clearing / Debris']], compat: '<strong>Compatible with:</strong> Standard flow skid steers (15–25 GPM). Works on Bobcat, Cat, Kubota, Case, John Deere, and most major brands with auxiliary hydraulics.', price: '$110', priceSub: 'Per day · Weekly rates available' },
+  washer: { category: 'Towable Equipment', name: 'Pressure Washer Trailer', model: 'Hotsy 1265SSD · ChoreMaster Generator · Cox Hose Reel', desc: 'Commercial grade Hotsy 1265SSD pressure washer mounted on a tandem axle trailer with a 500 gallon water tank, ChoreMaster generator, and integrated Cox hose reel. Fully self contained — bring it to the job and get to work.', specs: [['Pressure Washer', 'Hotsy 1265SSD'],['Water Tank', '500 Gallons'],['Hose Reel', 'Cox Integrated'],['Generator', 'ChoreMaster'],['Trailer', 'Tandem Axle'],['Tow Hitch', 'Standard Ball']], compat: '<strong>Towing requirement:</strong> Standard ball hitch. Recommend 3/4 ton or larger pickup for safe towing. Fuel and water not included in rental.', price: '$225', priceSub: 'Per day · $900 per week · Self contained' },
+  t76: { category: 'Featured Equipment · Request To Book', name: '2024 Bobcat T76', model: 'Compact Track Loader · High Flow · Wyoming Premier Rental', desc: '2024 Bobcat T76 compact track loader in like-new condition. High flow hydraulics run all high demand attachments. Bluetooth connectivity, backup camera, and 2-speed travel for maximum versatility. Add any WPR attachment at 50% off when bundled. Every T76 rental confirmed personally — damage deposit required.', specs: [['Year', '2024'],['Model', 'Bobcat T76'],['Hydraulics', 'High Flow'],['Travel', '2-Speed'],['Tech', 'Bluetooth + Backup Cam'],['Tracks', 'Rubber Compact Track']], compat: '<strong>Request to book:</strong> Every T76 rental is confirmed personally. Renter experience with skid steer operation required. Damage deposit collected at booking. Add any attachment at 50% off the regular daily rate when bundled.', price: '$375', priceSub: 'Per day · Request to book · Attachments 50% off when bundled' }
+};
+
+function openModal(key) {
+  const d = modals[key];
+  if (!d) return;
+  document.getElementById('modal-category').textContent = d.category;
+  document.getElementById('modal-name').textContent = d.name;
+  document.getElementById('modal-model').textContent = d.model;
+  document.getElementById('modal-desc').textContent = d.desc;
+  document.getElementById('modal-price').textContent = d.price;
+  document.getElementById('modal-price-sub').textContent = d.priceSub;
+  document.getElementById('modal-compat').innerHTML = d.compat;
+  const specsEl = document.getElementById('modal-specs');
+  specsEl.innerHTML = d.specs.map(([l, v]) => `<div class="modal-spec"><div class="modal-spec-label">${l}</div><div class="modal-spec-value">${v}</div></div>`).join('');
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
 function submitForm() {
   const required = ['fname','lname','phone','email','equipment','pickup','return'];
   let valid = true;
   required.forEach(id => {
     const el = document.getElementById(id);
-    if (!el.value) {
-      el.style.borderColor = 'rgba(226,75,74,0.6)';
-      valid = false;
-    } else {
-      el.style.borderColor = '';
-    }
+    if (!el.value) { el.style.borderColor = 'rgba(226,75,74,0.6)'; valid = false; }
+    else { el.style.borderColor = ''; }
   });
-  if (!document.getElementById('terms').checked) {
-    alert('Please agree to the rental terms before submitting.');
-    return;
-  }
-  if (!valid) {
-    alert('Please fill in all required fields.');
-    return;
-  }
+  if (!document.getElementById('terms').checked) { alert('Please agree to the rental terms before submitting.'); return; }
+  if (!valid) { alert('Please fill in all required fields.'); return; }
   const msg = document.getElementById('success-msg');
   msg.style.display = 'block';
   msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  ['fname','lname','phone','email','equipment','pickup','return','notes'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
+  ['fname','lname','phone','email','equipment','pickup','return','notes'].forEach(id => { document.getElementById(id).value = ''; });
   document.getElementById('terms').checked = false;
 }
 
